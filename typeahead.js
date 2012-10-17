@@ -353,7 +353,7 @@
 			this.$element.on('keydown', $.proxy(this.keypress, this))
 
 			this.$menu
-				.on('click', $.proxy(this.click, this))
+				.on('mousedown', $.proxy(this.mousedown, this))
 				.on('mouseenter', 'li', $.proxy(this.mouseenter, this))
 		},
 
@@ -412,12 +412,14 @@
 		blur: function (e) {
 			var that = this
 			setTimeout(function () { that.hide() }, 150)
+			console.log("blur")
 		},
 
-		click: function (e) {
+		mousedown: function (e) {
 			e.stopPropagation()
 			e.preventDefault()
 			this.select()
+			console.log("click")
 		},
 
 		mouseenter: function (e) {
